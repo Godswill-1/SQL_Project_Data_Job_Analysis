@@ -29,7 +29,7 @@ Each query for this project aimed at investigating specific aspects of the data 
 ## 1. Top Paying Data Analyst Jobs
 To identify the highest-paying roles, I filtered data analyst positions by average yearly salary and location, focusing on remote jobs. This query highlights the high paying opportunities in the field.
 
-```
+```sql
 SELECT	
 	job_id,
 	job_title,
@@ -63,7 +63,7 @@ Top Paying Roles Bar graph visualizing the salary for the top 10 salaries for da
 ### 2. Skills for Top Paying Jobs
 To understand what skills are required for the top-paying jobs, I joined the job postings with the skills data, providing insights into what employers value for high-compensation roles.
 
-```
+```sql
 WITH top_paying_jobs AS (
     SELECT	
         job_id,
@@ -105,7 +105,7 @@ Top Paying Skills Bar graph visualizing the count of skills for the top 10 payin
 ### 3. In-Demand Skills for Data Analysts
 This query helped identify the skills most frequently requested in job postings, directing focus to areas with high demand.
 
-```
+```sql
 SELECT 
     skills,
     COUNT(skills_job_dim.job_id) AS demand_count
@@ -141,7 +141,7 @@ Here's the breakdown of the most demanded skills for data analysts in 2023
 ### 4. Skills Based on Salary
 Exploring the average salaries associated with different skills revealed which skills are the highest paying.
 
-```
+```sql
 SELECT 
     skills,
     ROUND(AVG(salary_year_avg), 0) AS avg_salary
@@ -183,7 +183,7 @@ Here's a breakdown of the results for top paying skills for Data Analysts:
 ### 5. Most Optimal Skills to Learn
 Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
 
-```
+```sql
 SELECT 
     skills_dim.skill_id,
     skills_dim.skills,
